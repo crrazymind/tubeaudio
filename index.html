@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>youtube player demo</title>
+    <!--link rel="stylesheet" type="text/css" href="bootstrap.css" media="all">
+    <link rel="stylesheet" type="text/css" href="prettify.css" media="all"-->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <script type="text/javascript" src="js/swf.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/audio.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="page-header"><h1>jQuery YouTube</h1></div>
+        <br><br>
+
+        <div class="span8">
+                <fieldset>
+                    <legend>Настройки плеера</legend>
+                    <div class="control-group">
+                        <label for="playlist" class="control-label">Выбор плейлиста:</label>
+                        <div class="controls">
+                            <input type="text" class="searcher" value="motorhead"/>
+                            <select name="playlist" id="playlist">
+                                <option value="blues">Blues</option>
+                                <option value="jazz">Jazz</option>
+                                <option value="breakbit">Breakbit</option>
+                                <option value="lady gaga">Lady Gaga</option>
+                                <option value="nu metal">Nu Metal</option>
+                                <option value="etnic">Etnic</option>
+                            </select>
+                            <button class="btn btn-primary" id="launch">Играть!</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Воспроизведение:</label>
+
+                        <div class="controls" id="play-control">
+                            <button id="prev" class="btn disabled">Предыдущий</button>
+                            <button id="toggleplay" class="btn btn-info disabled">Пауза/играть</button>
+                            <button id="next" class="btn disabled">Следующий</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <div id="player"></div>
+        </div>
+        <div class="span3 offset1">
+            <p><b>Сейчас играет: </b> <br><span id="curplay"></span></p>
+        </div>
+    </div>
+</body>
+</html>
