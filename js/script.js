@@ -12,18 +12,19 @@ function initPlayer(){
     var player = _player.youtube(opts);
     //_player.youtube('changeplaylist', 'motorhead');
     //setTimeout(function(){_player.youtube('toggleplay');}, 1000);
-   var _cp = $('#curplay');
+     var _cp = $('#curplay');
     $('#launch').click(function(){ 
          
        //_player.youtube('toggleplay');
         _player.youtube('changeplaylist', $('.searcher').val());
-         var curplay = _player.youtube('gettitle');
-         _cp.text(curplay);
+        setTimeout(function(){
+            var curplay = _player.youtube('gettitle');
+            _cp.text(curplay);
+         },300);
          //console.log(player.getPlaylist());
        return false;
     });
-    $('#next').click(function(){ 
-        
+    $('#next').click(function(){    
        _player.youtube('next');
          var curplay = _player.youtube('gettitle');
          _cp.text(curplay);
