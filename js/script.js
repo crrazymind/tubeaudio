@@ -2,14 +2,26 @@ $(document).ready(function(){
     //initPlayer();
     initHTML5();
 });
+ function onPlayerReady(event) {
+    console.log(event);
+    //event.target.playVideo();
+  }
 
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+      console.log('onPlayerStateChange');
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
 function initHTML5(){
-     /*var tag = document.createElement('script');
-      tag.src = "http://www.youtube.com/player_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      console.log(firstScriptTag);*/
     var _ifrHold = $('#player');
     //var _ifr = '<iframe id="player" type="text/html" width="%w%" height="%h%" src="%location%"  frameborder="0">';
     var _ifr = '<video id="player" width="%w%" height="%h%" src="%location%" ></video>';
@@ -49,48 +61,6 @@ function initHTML5(){
         $('.playlist').append($(list_items));
     });
 
-/*    $.ajax({
-      url: vquery,
-      context: document.body,
-      contentType : 'json',
-        success: function(data) {
-        console.log(1);
-        console.log(data);
-      }
-  });*/
-
-      var player;
-      function onYouTubePlayerAPIReady() {
-          console.log('onYouTubePlayerAPIReady');
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'u1zgFlCw8Aw',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-     function onPlayerReady(event) {
-        console.log('playme');
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-          console.log('onPlayerStateChange');
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
 }
 
 
