@@ -4,6 +4,7 @@ $(document).ready(function(){
 });
  function onPlayerReady(event) {
     console.log(event);
+    console.log(window.player);
     //event.target.playVideo();
   }
 
@@ -59,6 +60,10 @@ function initHTML5(){
             }
         }
         $('.playlist').append($(list_items));
+        $('.playlist').change(function(){
+            console.log($(this).val());
+             player.loadVideoById($(this).val().toString() , 10 , 'highres');
+        })
     });
 
 }

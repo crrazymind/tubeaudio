@@ -19,7 +19,6 @@
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player;
       function onYouTubePlayerAPIReady() {
         console.log('onYouTubePlayerAPIReady');
         window.player = new YT.Player('player', {
@@ -56,6 +55,7 @@
                             <button class="btn btn-primary" id="launch">Играть!</button>
                         </div>
                     </div>
+                    <select style="float:right; width:50%; height:200px;" class="playlist" multiple="multiple" name="choose"></select>
                     <div class="control-group">
                         <label class="control-label">Воспроизведение:</label>
 
