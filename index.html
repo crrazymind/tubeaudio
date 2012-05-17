@@ -6,15 +6,16 @@
     <link rel="stylesheet" type="text/css" href="prettify.css" media="all"-->
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <script type="text/javascript" src="js/swf.js"></script>
-    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <!--script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="http://backbonejs.ru/backbone.js"></script>
-    <script type="text/javascript" src="js/audio.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="http://backbonejs.ru/backbone.js"></script-->
+    <!--script type="text/javascript" src="js/audio.js"></script-->
+    <!--script type="text/javascript" src="js/script.js"></script-->
 </head>
 <body>
-<script>
-      var tag = document.createElement('script');
+<!--script>
+    /*  var tag = document.createElement('script');
       tag.src = "http://www.youtube.com/player_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -30,8 +31,8 @@
             'onStateChange': onPlayerStateChange
           }
         });
-      }
-</script>
+      }*/
+</script-->
 <div class="container">
     <div class="row">
         <div class="page-header"><h1>jQuery YouTube</h1></div>
@@ -58,7 +59,6 @@
                     <select style="float:right; width:50%; height:200px;" class="playlist" multiple="multiple" name="choose"></select>
                     <div class="control-group">
                         <label class="control-label">Воспроизведение:</label>
-
                         <div class="controls" id="play-control">
                             <button id="prev" class="btn disabled">Предыдущий</button>
                             <button id="toggleplay" class="btn btn-info disabled">Пауза/играть</button>

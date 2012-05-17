@@ -1,6 +1,32 @@
 $(document).ready(function(){
     //initPlayer();
+
+      var tag = document.createElement('script');
+      tag.src = "http://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      function onYouTubePlayerAPIReady() {
+        console.log('onYouTubePlayerAPIReady');
+        window.player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'u1zgFlCw8Aw',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
     initHTML5();
+	alert(1);
+	$.ajax({
+	  url: "http://google.com",
+	  context: document.body
+	}).done(function() {
+	  $(this).addClass("done");
+	});
 });
  function onPlayerReady(event) {
     console.log(event);
@@ -61,9 +87,22 @@ function initHTML5(){
         }
         $('.playlist').append($(list_items));
         $('.playlist').change(function(){
-            console.log($(this).val());
              player.loadVideoById($(this).val().toString() , 10 , 'highres');
-        })
+        });
+    });
+    $('#launch').click(function launch(){
+        player.loadVideoById( playlist[0].id , 0 , 'highres');
+        $('#curplay').text(player.getVideoData().title);
+       return false;
+    });
+    $('#next').click(function next(){
+       player.nextVideo();
+       $('#curplay').text(player.getVideoData().title);
+       return false;
+    });
+    $('#toggleplay').click(function toggleplay(){
+       player.pauseVideo();
+       return false;
     });
 
 }
@@ -77,7 +116,7 @@ function initHTML5(){
 function initPlayer(){
     var opts = {
         'query' : $('.searcher').val(),
-        'results_count' : 25, // количество резултатов
+        'results_count' : 25,
         'autoplay' : true
     };
     var _player = $('#player');
@@ -100,6 +139,10 @@ function initPlayer(){
        _player.youtube('next');
          var curplay = _player.youtube('gettitle');
          _cp.text(curplay);
+       return false;
+    });
+    $('#toggleplay').click(function(){
+       _player.youtube('toggleplay');
        return false;
     });
 }
